@@ -2,6 +2,7 @@
 
 **Proyecto:** Sistema de Gestión de Citas Médicas  
 **Institución:** Universidad Nacional de Ingeniería (UNI)  
+**URL Taiga:** [http://159.195.245.124:8085/project/sistema-citas-medicas/](http://159.195.245.124:8085/project/sistema-citas-medicas/)  
 **Stack Tecnológico:** Java 21 | Spring Boot | React | TypeScript | Tailwind CSS | PostgreSQL | Docker Compose | Spring Security (JWT) | Spring AOP | LLM API  
 
 ---
@@ -108,7 +109,6 @@
 
 #### US-4.1: Pruebas Unitarias y de Integración Backend
 * **Descripción:** Como equipo de desarrollo, quiero ejecutar pruebas automatizadas sobre los servicios críticos para validar las reglas de negocio.
-* **Detalle Técnico:** Pruebas unitarias e integración con JUnit 5 y Mockito enfocadas en reservas, autenticación y aspectos AOP.
 * **Etiquetas (Tags):** `java21`, `spring-boot`, `aop`
 * **Puntos de Historia:**
   * UX / Design: 0 pts
@@ -118,7 +118,6 @@
 
 #### US-4.2: Documentación Interactiva de la API (OpenAPI / Swagger)
 * **Descripción:** Como evaluador/desarrollador, quiero contar con la especificación interactiva de la API para probar los endpoints desde el navegador.
-* **Detalle Técnico:** Integración de `springdoc-openapi` en Spring Boot para autogenerar la especificación Swagger UI.
 * **Etiquetas (Tags):** `java21`, `spring-boot`
 * **Puntos de Historia:**
   * UX / Design: 0 pts
