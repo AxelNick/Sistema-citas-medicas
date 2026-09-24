@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Definición de colores ANSI
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # Sin color (restablece el formato)
+
+# Obtener el nombre de la rama actual (funciona incluso en el primer commit)
+local_branch="$(git branch --show-current)"
+
+# Definir el patrón de ramas válidas
+valid_pattern="^(main|feature/[a-z0-9\-]+|bugfix/[a-z0-9\-]+)$"
+
+# Si branch --show-current devuelve vacío, estamos en "detached HEAD".
+# Permitimos el commit en este estado (ej. durante un rebase o checkout de un tag).
+if [[ -z "$local_branch" ]]; then
+    exit 0
+fi
+
+# Validar el nombre de la rama contra el patrón
+if [[ ! $local_branch =~ $valid_pattern ]]; then
+    echo -e "${RED}Error: El nombre de la rama '$local_branch' no es válido.${NC}"
+    echo -e "${YELLOW}La estrategia de ramificación requiere usar uno de los siguientes formatos:${NC}"
+    echo -e "${YELLOW}  - main${NC}"
+    echo -e "${YELLOW}  - feature/kebab-case (ej. feature/nuevo-login)${NC}"
+    echo -e "${YELLOW}  - bugfix/kebab-case  (ej. bugfix/error-calculo)${NC}"
+    exit 1
+fi

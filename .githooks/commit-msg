@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Definición de colores ANSI
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # Sin color (restablece el formato)
+
+# Archivo que contiene el mensaje del commit
+commit_file="$1"
+
+# Extraemos solo la primera línea (el título) para validarla
+commit_msg_title=$(head -n 1 "$commit_file")
+
+commit_msg_title_max_size=72
+valid_types="feat fix docs test refactor style chore build ci perf"
+
+# Expresión regular para Conventional Commits
+convention_pattern="^([a-z]+)(\(([a-zA-Z0-9_-]+)\))?(!)?:[[:space:]]+(.+)$"
+
+if [[ $commit_msg_title =~ $convention_pattern ]]; then
+    type="${BASH_REMATCH[1]}"
+    scope="${BASH_REMATCH[3]}"
+    breaking_change="${BASH_REMATCH[4]}"
+    description="${BASH_REMATCH[5]}"
+
+    # 1. Validar que el tipo esté en la lista permitida
+    if ! echo "$valid_types" | grep -w -q "$type"; then
+        echo -e "${RED}Error: '$type' no es un tipo válido para el mensaje de commit.${NC}"
+        echo -e "${YELLOW}Tipos permitidos: $valid_types${NC}"
+        exit 1
+    fi
+
+    # 2. Validar la longitud máxima del título
+    if (( ${#commit_msg_title} > commit_msg_title_max_size )); then
+        echo -e "${RED}Error: El título del commit tiene ${#commit_msg_title} caracteres.${NC}"
+        echo -e "${YELLOW}El límite máximo es de $commit_msg_title_max_size caracteres.${NC}"
+        exit 1
+    fi
+else
+    # Mensaje de error si la estructura no coincide
+    echo -e "${RED}Error: Formato de mensaje de commit incorrecto.${NC}"
+    echo -e "${YELLOW}El formato debe seguir Conventional Commits:${NC}"
+    echo -e "${YELLOW}   <tipo>[alcance opcional][! opcional]: <descripción>${NC}"
+    echo ""
+    echo -e "Ejemplos válidos:"
+    echo -e "  - feat: agregar nueva pantalla de inicio"
+    echo -e "  - fix(ui-login): corregir alineación de botones"
+    echo -e "  - refactor(api)!: cambiar la estructura de la base de datos"
+    exit 1 
+fi
+
+echo -e "${GREEN}Mensaje de commit válido.${NC}"
