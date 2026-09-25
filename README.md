@@ -1,4 +1,4 @@
-# 🏥 Sistema de Gestión de Citas Médicas
+# Sistema de Gestión de Citas Médicas
 
 > **Cliente / Organización:** Universidad Nacional de Ingeniería (UNI)  
 > **Arquitectura:** Monolítica Modular por capas con Programación Orientada a Aspectos (AOP)  
@@ -7,13 +7,13 @@
 
 ---
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 El **Sistema de Gestión de Citas Médicas** es una solución web monolítica modular diseñada para centralizar el agendamiento clínico de la Universidad Nacional de Ingeniería (UNI). Integra un **Asistente Inteligente (IA)** que procesa lenguaje natural para realizar un *triage operativo* (sugiriendo especialidades y facilitando la búsqueda de horarios), garantizando transacciones seguras de citas y aplicando **Spring AOP** para la separación de aspectos transversales como auditoría, logging y manejo de excepciones.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Capa / Módulo | Tecnología / Herramienta | Descripción |
 | :--- | :--- | :--- |
@@ -34,7 +34,7 @@ El **Sistema de Gestión de Citas Médicas** es una solución web monolítica mo
 
 ---
 
-## 🚀 Características Principales (Dentro del Alcance)
+## Características Principales (Dentro del Alcance)
 
 - **Módulo de Autenticación y RBAC (RF-001 - RF-004):** Registro e inicio de sesión seguro con tokens JWT para roles de `PACIENTE`, `MEDICO` y `ADMINISTRADOR`.
 - **Capa Transversal con Spring AOP (RNF-007):** Captura automática de eventos de auditoría (registro de quién modifica una cita), logs estructurados y gestión centralizada de errores.
@@ -45,15 +45,15 @@ El **Sistema de Gestión de Citas Médicas** es una solución web monolítica mo
 
 ---
 
-## 🚫 Fuera del Alcance (Exclusiones)
+## Fuera del Alcance (Exclusiones)
 
-- ❌ **Sin responsabilidad clínica:** El chatbot de IA no emite diagnósticos, recetas ni tratamientos.
-- ❌ **Sin procesamiento de pagos:** No incluye facturación ni pasarelas de pago electrónico.
-- ❌ **Sin Historias Clínicas Complejas (EHR):** No gestiona imágenes médicas ni exámenes externos.
+- **Sin responsabilidad clínica:** El chatbot de IA no emite diagnósticos, recetas ni tratamientos.
+- **Sin procesamiento de pagos:** No incluye facturación ni pasarelas de pago electrónico.
+- **Sin Historias Clínicas Complejas (EHR):** No gestiona imágenes médicas ni exámenes externos.
 
 ---
 
-## 📁 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
 sistema-citas-medicas/
@@ -71,7 +71,7 @@ sistema-citas-medicas/
 
 ---
 
-## 🛠️ Requisitos Previos e Instalación
+## Requisitos Previos e Instalación
 
 ### Prerrequisitos
 - **Java 21 LTS** o superior.
@@ -114,16 +114,16 @@ sistema-citas-medicas/
 
 ---
 
-## 📊 Planificación y Gestión en Taiga
+## Planificación y Gestión en Taiga
 
 - **URL de Taiga:** [http://159.195.245.124:8085/project/sistema-citas-medicas/](http://159.195.245.124:8085/project/sistema-citas-medicas/)
 
 Para consultar el desglose detallado de las **4 Épicas**, **10 Historias de Usuario**, asignación de **Puntos de Historia por capa (UX, Frontend, Backend)** y el plan de **5 Sprints**, revisa los documentos en la carpeta `/docs`:
-- 📄 [`docs/wbs-taiga.md`](docs/wbs-taiga.md) — Estructura WBS y Backlog.
-- 📄 [`docs/sprints-planning.md`](docs/sprints-planning.md) — Cronograma de Sprints y Convención de Commits.
+- [`docs/wbs-taiga.md`](docs/wbs-taiga.md) — Estructura WBS y Backlog.
+- [`docs/sprints-planning.md`](docs/sprints-planning.md) — Cronograma de Sprints y Convención de Commits.
 
 ---
 
-## 📝 Licencia y Créditos
+## Licencia y Créditos
 
 Desarrollado para el curso de Desarrollo de Software de la **Universidad Nacional de Ingeniería (UNI)**.
